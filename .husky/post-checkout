@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Check if pnpm-lock.yaml file has changed
+if [[ $(git diff-tree --name-only --no-commit-id -r HEAD@{1} HEAD) =~ pnpm-lock.yaml ]]; then
+    # Run pnpm install in the repository root directory
+    echo "⚠️ pnpm-lock.yaml changed, gotta update your local dependencies just in case..."
+    pnpm install --frozen-lockfile
+fi

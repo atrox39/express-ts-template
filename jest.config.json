@@ -1,0 +1,21 @@
+{
+  "roots": [
+    "<rootDir>/test"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "ts",
+    "json"
+  ],
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "testMatch": [
+    "**/?(*.)+(spec|test).ts?(x)"
+  ],
+  "transform": {
+    "^.+\\.ts?$": "ts-jest"
+  },
+  "collectCoverageFrom": ["**/*.{js,ts}", "src/**/*.{ts,js}", "!**/*.d.{js,ts}"],
+  "reporters": ["default", "jest-junit"],
+  "coverageReporters": ["clover", "json", "lcov", "text", "cobertura"]
+}
