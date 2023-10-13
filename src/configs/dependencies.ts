@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable import/namespace */
 import { Container } from 'typedi';
 import { createLogger, transports, format, Logger } from 'winston';
 import { AppDataSource } from './database';
 import * as models from '../models';
 
-const inject = (injection: {[key: string]: any}, logger: Logger) => {
+const inject = (injection: {[key: string]: object}, logger: Logger) => {
   try {
     logger.info(`Model injection`);
     Object.keys(injection).forEach((model: string) => {

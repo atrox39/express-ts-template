@@ -1,6 +1,6 @@
 import { validate } from 'class-validator';
 import { Repository } from 'typeorm';
-import { Service } from 'typedi';
+import { Service, Inject } from 'typedi';
 import { Logger } from 'winston';
 import { User } from '../models/user.model';
 import { LoginDto } from '../interfaces/dto/user.dto';
@@ -10,8 +10,8 @@ export class UserService {
   private temp = 'message';
 
   constructor(
-    private readonly userModel: Repository<User>,
-    private readonly logger: Logger,
+    @Inject('UserModel') private readonly userModel: Repository<User>,
+    @Inject('logger') private readonly logger: Logger,
   ) {}
 
   public index = () => this.temp ;

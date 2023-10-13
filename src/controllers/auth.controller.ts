@@ -4,14 +4,7 @@ import { UserService } from '../services';
 
 @Controller('/api/auth')
 export default class AuthController {
-  private userService: UserService;
-
-  constructor() {
-    this.userService = new UserService(
-      Container.get('UserModel'),
-      Container.get('logger'),
-    );
-  }
+  constructor(private readonly userService: UserService = Container.get(UserService)) {}
 
   @Post('/login')
   public async login() {
